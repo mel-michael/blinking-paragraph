@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8" />
+	<title>Blinking Paragraph</title>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js"></script>
+	<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
+</head>
+
+<body>
+	<div id="example"></div>
+	<script type="text/babel">
+
+    const loremText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia est mi, et pulvinar turpis molestie at. Maecenas eleifend elit neque, consectetur ultrices elit volutpat eu. Vivamus lorem elit, fringilla vitae pharetra id, efficitur id sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique metus et est facilisis euismod. Pellentesque ut arcu at arcu venenatis tristique. In sed nisl eu massa interdum porta eget consectetur sapien. Vestibulum a interdum neque. Maecenas ut purus eu nisi sodales condimentum. Vivamus at dui at magna luctus sollicitudin. In in sem congue, facilisis ipsum ac, euismod quam. Curabitur elementum, velit a sagittis ultrices, ex eros lobortis nisi, non venenatis mauris risus eu risus. Pellentesque in dolor metus. Duis maximus sapien at ipsum maximus facilisis. Nulla porta porttitor lacus non malesuada.";
+       
+    const colors = ["red", "blue", "green", "yellow", "orange", "indigo", "violet"]; // I used rainbow colors :) 
+       
+    class BlinkingParagraph extends React.Component {
+			constructor(props) {
+				super(props);
+				this.state = { paragraph: '' }
+			}
+			
+			componentDidMount() {
+				this.timerID = setInterval(
+					() => this.createColoredParagraph()
+				, 1000);
+			}
+			
+			componentWillUnmount() {
+				clearInterval(this.timerID);
+			}
+
+			createColoredParagraph() {
+				const coloredText = loremText.split(' ').map(word => {
+					const wordColor = colors[Math.floor(Math.random() * colors.length)];
+					return (<span style={{ color: wordColor }}> {word}</span>)
+				});
+				this.setState({ paragraph: coloredText });
+			}
+
+			render() {
+				return (
+					<div>
+						<p>{this.state.paragraph}</p>
+						<p>{this.state.paragraph}</p>
+					</div>
+				);
+			}
+    }
+       
+		ReactDOM.render(<BlinkingParagraph /> ,
+			document.getElementById('example')
+		);
+
+	</script>
+</body>
+
+</html>
