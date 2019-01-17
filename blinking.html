@@ -4,14 +4,28 @@
 <head>
 	<meta charset="UTF-8" />
 	<title>Blinking Paragraph</title>
-
+	<style>
+		body {
+			margin: 80px auto;
+		}
+		h1, h3 {
+			text-align: center;
+			color: darkgray;
+		}
+		#example {
+			border: 2px solid #939393;
+			padding: 50px;
+		}
+	</style>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/react/15.3.2/react-dom.min.js"></script>
 	<script src="https://unpkg.com/babel-core@5.8.38/browser.min.js"></script>
 </head>
 
 <body>
+	<h1>Blinking Paragraph</h1>
 	<div id="example"></div>
+	<h3>Warning: Don't stare for long</h3>
 	<script type="text/babel">
 
     const loremText="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc lacinia est mi, et pulvinar turpis molestie at. Maecenas eleifend elit neque, consectetur ultrices elit volutpat eu. Vivamus lorem elit, fringilla vitae pharetra id, efficitur id sem. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce tristique metus et est facilisis euismod. Pellentesque ut arcu at arcu venenatis tristique. In sed nisl eu massa interdum porta eget consectetur sapien. Vestibulum a interdum neque. Maecenas ut purus eu nisi sodales condimentum. Vivamus at dui at magna luctus sollicitudin. In in sem congue, facilisis ipsum ac, euismod quam. Curabitur elementum, velit a sagittis ultrices, ex eros lobortis nisi, non venenatis mauris risus eu risus. Pellentesque in dolor metus. Duis maximus sapien at ipsum maximus facilisis. Nulla porta porttitor lacus non malesuada.";
